@@ -80,6 +80,10 @@ on property:sys.boot_completed=1
     swapon_all /vendor/etc/fstab.qcom
     write /proc/sys/vm/swappiness 100    
 
+   # Back to default VM settings
+    write /proc/sys/vm/dirty_expire_centisecs 3000
+    write /proc/sys/vm/dirty_background_ratio 10
+
 service sec_nvm /vendor/bin/sec_nvm
     class core
     user system
